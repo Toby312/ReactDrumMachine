@@ -9,10 +9,7 @@ function ForKeys({play, sounds:{keyTrigger, url, id, keyCode}}) {
 
     useEffect(()=>{
         document.addEventListener("keydown", handleKeydown)
-        return () => {
-          document.removeEventListener('keydown', handleKeydown);
-        }
-    }, [])
+    },)
   return (
     <button  className="drum-pad" id={id} onClick={()=> play(keyTrigger, id)}>
     <audio src={url} id={keyTrigger} className='clip'/>
