@@ -1,14 +1,17 @@
 import React, {useEffect} from 'react'
 
 function ForKeys({play, sounds:{keyTrigger, url, id, keyCode}}) {
-    const handleKeyDown=(event)=>{
+    const handleKeydown=(event)=>{
         if(event.keyCode === keyCode){
             play(keyTrigger, id)
         }
     }
 
     useEffect(()=>{
-        document.addEventListener("keyDown", handleKeyDown)
+        document.addEventListener("keydown", handleKeydown)
+        return () => {
+          document.removeEventListener('keydown', handleKeydown);
+        }
     }, [])
   return (
     <button  className="drum-pad" id={id} onClick={()=> play(keyTrigger, id)}>
