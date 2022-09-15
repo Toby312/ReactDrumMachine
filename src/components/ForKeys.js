@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 
 function ForKeys({play, sounds:{keyTrigger, url, id, keyCode}}) {
     const handleKeydown=(event)=>{
-        if(event.keyCode == keyCode){
+        if(event.keyCode === keyCode){
             play(keyTrigger, id)
         }
     }
